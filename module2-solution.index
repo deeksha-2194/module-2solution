@@ -1,0 +1,132 @@
+<!-- Save this as module2-solution/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Sections</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  color: #222;
+  padding: 20px;
+  line-height: 1.5;
+}
+h1 {
+  font-size: 1.75em; /* 75% larger than default ~1em */
+  text-align: center;
+  margin-bottom: 30px;
+}
+.container {
+  width: 100%;
+}
+/* Base styles for each section */
+.section {
+  position: relative;
+  background-color: #e0e0e0;
+  border: 1px solid black;
+  padding: 40px 20px 20px 20px; /* top padding leaves space for title */
+  margin: 15px auto;
+}
+/* Title box */
+.section-title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #c0c0c0;
+  border: 1px solid black;
+  border-bottom: none;
+  border-left: none;
+  padding: 6px 18px;
+  font-weight: bold;
+  font-size: 1.25em; /* 25% larger */
+  line-height: 1;
+  user-select: none;
+}
+/* Different background colors for each title box */
+.chicken .section-title {
+  background-color: #ffcccb;
+}
+.beef .section-title {
+  background-color: #ff9999;
+}
+.sushi .section-title {
+  background-color: #ffe066;
+}
+/* Responsive Layout */
+/* Desktop: 3 sections in one row, equal width */
+@media (min-width: 992px) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .section {
+    width: calc((100% / 3) - 30px);
+    margin: 15px 15px 15px 0;
+  }
+  /* Remove right margin on last section */
+  .section:last-child {
+    margin-right: 0;
+    }
+}
+/* Tablet: first 2 sections in one row, 3rd full width below */
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .chicken,
+  .beef {
+    width: calc(50% - 30px);
+    margin: 15px 15px 15px 0;
+  }
+  .beef {
+    margin-right: 0;
+  }
+  .sushi {
+    width: 100%;
+    margin: 15px 0 15px 0;
+  }
+}
+/* Mobile: stacked full width */
+@media (max-width: 767px) {
+  .section {
+    width: 100%;
+    margin: 15px 0;
+    }
+}
+
+    
+  </style>
+</head>
+<body>
+ <h1>Our Menu</h1>
+<div class="container">
+    <section class="section chicken">
+      <div class="section-title">Chicken</div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </section>
+    <section class="section beef">
+      <div class="section-title">Beef</div>
+      <p>
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </section>
+    <section class="section sushi">
+      <div class="section-title">Sushi</div>
+      <p>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
+    </section>
+  </div>
+</body>
+</html>
